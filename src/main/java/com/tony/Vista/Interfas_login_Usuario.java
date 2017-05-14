@@ -99,7 +99,7 @@ public class Interfas_login_Usuario extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 210, 30));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/user.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/Imagenes/user.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 180, 150));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
