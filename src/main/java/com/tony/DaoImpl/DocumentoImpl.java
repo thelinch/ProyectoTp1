@@ -1,4 +1,4 @@
-package tony.com.DaoImpl;
+package com.tony.DaoImpl;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -17,7 +17,7 @@ import com.tony.models.Documento.Documento;
 import com.tony.models.Documento.Estado_documentos;
 import com.tony.models.Documento.Operacion_EstadosDocumentos;
 
-import tony.com.DaoImpl.Entidad;
+import com.tony.DaoImpl.Entidad;
 
 public class OperacionEstadoDocumentoListener {
 

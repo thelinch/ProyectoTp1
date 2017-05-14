@@ -1,4 +1,4 @@
-package tony.com.DaoImpl;
+package com.tony.DaoImpl;
 
 import java.util.List;
 import javax.persistence.EntityManager;

@@ -55,9 +55,9 @@ import com.tony.models.UsuarioInterno.Perfil;
 import com.tony.models.UsuarioInterno.Usuario_interno;
 
 import javassist.convert.Transformer;
-import tony.com.DaoImpl.DocumentoImpl;
-import tony.com.DaoImpl.Entidad;
-import tony.com.DaoImpl.UsuariaosImpl;
+import com.tony.DaoImpl.DocumentoImpl;
+import com.tony.DaoImpl.Entidad;
+import com.tony.DaoImpl.UsuariaosImpl;
 
 public class TestPersona {
 
