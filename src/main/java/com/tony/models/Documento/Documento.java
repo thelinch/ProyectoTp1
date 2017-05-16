@@ -16,26 +16,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.tony.HerenciaEntidades.Persona;
+
 import com.tony.models.Tupa;
 import com.tony.models.UsuarioExterrno.UsuarioExterno;
-import com.tony.models.UsuarioInterno.Usuario_interno;
-
 
 
 @Entity
 @Table(name="documento")
 public class Documento implements Serializable {
-/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 @Id
 @GeneratedValue(strategy=GenerationType.SEQUENCE)

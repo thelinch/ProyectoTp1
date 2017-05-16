@@ -411,7 +411,7 @@ public class TestPersona {
 		 * 
 		 * }
 		 */
-Inicio();
+                Inicio();
 	}
 
 	private static void Inicio() {

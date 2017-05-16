@@ -29,60 +29,35 @@ public class Interfas_login_Usuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton_Ingresar = new javax.swing.JButton();
-        jButton_Salir = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jPasswordField_Clave = new javax.swing.JPasswordField();
-        jTextField_Usuario = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabelFondo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField_Usuario = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jPasswordField_Clave = new javax.swing.JPasswordField();
+        jButton_Ingresar = new javax.swing.JButton();
+        jButton_Salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton_Ingresar.setBackground(new java.awt.Color(51, 51, 255));
-        jButton_Ingresar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton_Ingresar.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_Ingresar.setText("INGRESAR");
-        jButton_Ingresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_IngresarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton_Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 140, 50));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton_Salir.setBackground(new java.awt.Color(0, 102, 204));
-        jButton_Salir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton_Salir.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_Salir.setText("SALIR");
-        jButton_Salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_SalirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 140, 50));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/Imagenes/user.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 180, 150));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 255, 255));
+        jLabel4.setText("INICIAR SESION");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("USUARIO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("CLAVE");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
-
-        jPasswordField_Clave.setBackground(new java.awt.Color(0, 0, 0));
-        jPasswordField_Clave.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField_Clave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField_ClaveActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jPasswordField_Clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 210, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
 
         jTextField_Usuario.setBackground(new java.awt.Color(0, 0, 0));
         jTextField_Usuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -97,18 +72,45 @@ public class Interfas_login_Usuario extends javax.swing.JFrame {
                 jTextField_UsuarioKeyTyped(evt);
             }
         });
-        getContentPane().add(jTextField_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 210, 30));
+        jPanel1.add(jTextField_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 210, 30));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/Imagenes/user.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 180, 150));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("CLAVE");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 262, 80, 30));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 255, 255));
-        jLabel4.setText("INICIAR SESION");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, -1, 30));
+        jPasswordField_Clave.setBackground(new java.awt.Color(0, 0, 0));
+        jPasswordField_Clave.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField_Clave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField_ClaveActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jPasswordField_Clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, 210, 30));
 
-        jLabelFondo.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 5, 750, 470));
+        jButton_Ingresar.setBackground(new java.awt.Color(51, 51, 255));
+        jButton_Ingresar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton_Ingresar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Ingresar.setText("INGRESAR");
+        jButton_Ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_IngresarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton_Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 140, 50));
+
+        jButton_Salir.setBackground(new java.awt.Color(0, 102, 204));
+        jButton_Salir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton_Salir.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Salir.setText("SALIR");
+        jButton_Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_SalirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton_Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 140, 50));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -180,7 +182,7 @@ public class Interfas_login_Usuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabelFondo;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField_Clave;
     private javax.swing.JTextField jTextField_Usuario;
     // End of variables declaration//GEN-END:variables
