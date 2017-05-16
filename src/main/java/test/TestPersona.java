@@ -64,7 +64,8 @@ public class TestPersona {
 	private static EntityManager em = Entidad.getEntidad().getEntidadManager();
 
 	public static void main(String[] args) {
-
+           Session s=(Session) em.getDelegate();
+            System.out.println(s.createCriteria(Area.class).add(Restrictions.eq("tipoArea", Tipos_Area._Fiscalizacion_y_Control)).uniqueResult()); 
 		//DocumentoImpl funci = new DocumentoImpl();
 		/*
 		 * Session Se=(Session)em.getDelegate(); Documento doc=new Documento();
@@ -411,7 +412,7 @@ public class TestPersona {
 		 * 
 		 * }
 		 */
-                Inicio();
+               // Inicio();
 	}
 
 	private static void Inicio() {
