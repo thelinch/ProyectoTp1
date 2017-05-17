@@ -16,4 +16,5 @@ import java.util.List;
 public interface IPersona {
     List<Documento> All_documentos(Persona usuario );
     boolean Inicio_Session(Persona usuario);
+    
 }
