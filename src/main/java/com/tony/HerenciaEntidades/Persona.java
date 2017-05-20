@@ -42,7 +42,6 @@ public abstract class Persona implements Serializable {
     protected String telefono;
     @Column(name = "sesion", nullable = false)
     protected boolean IsSesion = false;
-
     public Persona() {
     }
 

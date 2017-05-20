@@ -7,7 +7,6 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.tony.HerenciaEntidades.Persona;
-import com.tony.models.Documento.Documento;
 import com.tony.models.Documento.OperacionDocumento;
 
 /**
@@ -17,63 +16,68 @@ import com.tony.models.Documento.OperacionDocumento;
 @Entity
 
 public class Usuario_interno extends Persona implements Serializable {
-private static final long serialVersionUID = 1L;
- @ManyToOne(fetch=FetchType.LAZY)
- @JoinColumn(name="perfil_id_perfil",nullable=false)
- private Perfil perfil;
- @ManyToOne(fetch=FetchType.LAZY)
- @JoinColumn(name="area_id_area",nullable=false)
- private Area area;
- //@ManyToMany(targetEntity=Documento.class)
- /*@ManyToMany(cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REMOVE})
+
+    private static final long serialVersionUID = 1L;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "perfil_id_perfil", nullable = false)
+    private Perfil perfil;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "area_id_area", nullable = false)
+    private Area area;
+    //@ManyToMany(targetEntity=Documento.class)
+    /*@ManyToMany(cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REMOVE})
  @JoinTable(name="operacion_documento",
  joinColumns={@JoinColumn(name="usuario")},
  inverseJoinColumns={@JoinColumn(name="documento")})
  private List<Documento> documentos=new ArrayList<>();*/
- @OneToMany(mappedBy="usuario",cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REMOVE},orphanRemoval=true)
- private List<OperacionDocumento> operacionUsuarioInterno=new ArrayList<>();
- public Usuario_interno() {
-	}
+    @OneToMany(mappedBy = "usuario", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REMOVE}, orphanRemoval = true)
+    private List<OperacionDocumento> operacionUsuarioInterno = new ArrayList<>();
 
- public void AddOperacionDocumento(OperacionDocumento opera){
-	 if(this.operacionUsuarioInterno.isEmpty() || !this.operacionUsuarioInterno.contains(opera)){
-		 this.operacionUsuarioInterno.add(opera);
-		 opera.setUsuario(this);
-	 }
- }
- 
-public Perfil getPerfil() {
-	return perfil;
-}
-public void setPerfil(Perfil perfil) {
-	this.perfil = perfil;
-}
-public Area getArea() {
-	return area;
-}
-public void setArea(Area area) {
-	this.area = area;
-}
+    public Usuario_interno() {
+    }
 
+    public void AddOperacionDocumento(OperacionDocumento opera) {
+        if (this.operacionUsuarioInterno.isEmpty() || !this.operacionUsuarioInterno.contains(opera)) {
+            this.operacionUsuarioInterno.add(opera);
+            opera.setUsuario(this);
+        }
+    }
 
-public List<OperacionDocumento> getOperacionUsuarioInterno() {
-	return operacionUsuarioInterno;
-}
+    public Perfil getPerfil() {
+        return perfil;
+    }
 
-public void setOperacionUsuarioInterno(List<OperacionDocumento> operacionUsuarioInterno) {
-	this.operacionUsuarioInterno = operacionUsuarioInterno;
-}
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
+    }
 
-public Usuario_interno(String nombre, String apellido, int dni, String codigo, String clave,Perfil perfil, Area area) {
-	super(nombre,  apellido,  dni,  codigo,  clave);
-	this.perfil = perfil;
-	this.area = area;
-}
+    public Area getArea() {
+        return area;
+    }
 
-@Override
-public String toString() {
-	return "Usuario_interno [perfil=" + perfil + ", area=" + area + ", operacionUsuarioInterno="
-			+ operacionUsuarioInterno + "]";
-}
+    public void setArea(Area area) {
+        this.area = area;
+    }
+
+    public List<OperacionDocumento> getOperacionUsuarioInterno() {
+        this.operacionUsuarioInterno.size();
+        return operacionUsuarioInterno;
+    }
+
+    public void setOperacionUsuarioInterno(List<OperacionDocumento> operacionUsuarioInterno) {
+        this.operacionUsuarioInterno = operacionUsuarioInterno;
+    }
+
+    public Usuario_interno(String nombre, String apellido, int dni, String codigo, String clave, Perfil perfil, Area area) {
+        super(nombre, apellido, dni, codigo, clave);
+        this.perfil = perfil;
+        this.area = area;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario_interno [perfil=" + perfil + ", area=" + area + ", operacionUsuarioInterno="
+                + operacionUsuarioInterno + "]";
+    }
 
 }

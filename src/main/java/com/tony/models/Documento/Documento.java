@@ -71,7 +71,7 @@ private List<Usuario_interno> usuarios;*/
     @JoinColumn(name = "id_concluido")
     private Concluido concluido;
 
-    @OneToMany(mappedBy = "documento", cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE, CascadeType.DETACH}, orphanRemoval = true)
+    @OneToMany(mappedBy = "documento", cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE, CascadeType.DETACH}, orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Operacion_EstadosDocumentos> operacionEstados = new ArrayList<>();
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST}, fetch = FetchType.LAZY, targetEntity = Tipo_peticion.class)
     private List<Tipo_peticion> tipo_peticions;
@@ -87,6 +87,12 @@ private List<Usuario_interno> usuarios;*/
         this.asunto = asunto;
         this.tipoDocumento = tipoDocumento;
 
+    }
+
+    public void AddTipo_peticions(Tipo_peticion peticion) {
+        if (this.tipo_peticions.isEmpty() || !this.tipo_peticions.contains(peticion)) {
+            this.tipo_peticions.add(peticion);
+        }
     }
 
     public void AddOperacionDocumentos(OperacionDocumento doc) {
@@ -225,6 +231,7 @@ private List<Usuario_interno> usuarios;*/
     }
 
     public List<Operacion_EstadosDocumentos> getOperacionEstados() {
+        this.operacionEstados.size();
         return operacionEstados;
     }
 
@@ -260,7 +267,9 @@ private List<Usuario_interno> usuarios;*/
 
     @Override
     public String toString() {
-        return "Documento [operacionEstados=" + operacionEstados + "]";
+        return "Documento{" + "id_documento=" + id_documento + ", codigo=" + codigo + ", fecha=" + fecha + ", asunto=" + asunto + ", contenido_doc=" + contenido_doc + ", Observaciones=" + Observaciones + ", Disconforme=" + Disconforme + ", num_foleo=" + num_foleo ;
     }
+
+    
 
 }

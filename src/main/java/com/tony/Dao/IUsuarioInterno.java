@@ -7,6 +7,7 @@ package com.tony.Dao;
 
 import com.tony.models.Documento.Documento;
 import com.tony.models.Documento.Estado_documentos;
+import com.tony.models.Documento.Operacion_EstadosDocumentos;
 import com.tony.models.Documento.Tipo_Documento;
 import com.tony.models.UsuarioExterrno.UsuarioExterno;
 import com.tony.models.UsuarioInterno.Usuario_interno;
@@ -37,4 +38,7 @@ public interface IUsuarioInterno {
     void Resolver_documento(Documento documento);
 
     Estado_documentos get_estado(Documento documento);
+
+    List<Operacion_EstadosDocumentos> get_flujograma_documento(Documento documento);
+
 }

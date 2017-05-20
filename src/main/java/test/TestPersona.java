@@ -57,61 +57,67 @@ import com.tony.models.UsuarioInterno.Usuario_interno;
 import javassist.convert.Transformer;
 import com.tony.DaoImpl.DocumentoImpl;
 import com.tony.DaoImpl.Entidad;
+import com.tony.DaoImpl.PersonaImpl;
 import com.tony.DaoImpl.UsuariaosImpl;
 
 public class TestPersona {
 
-	private static EntityManager em = Entidad.getEntidad().getEntidadManager();
+    private static EntityManager em = Entidad.getEntidad().getEntidadManager();
+    static PersonaImpl perons = new PersonaImpl();
 
-	public static void main(String[] args) {
-           Session s=(Session) em.getDelegate();
-           // System.out.println(s.createCriteria(Area.class).add(Restrictions.eq("tipoArea", Tipos_Area._Fiscalizacion_y_Control)).uniqueResult()); 
-		//DocumentoImpl funci = new DocumentoImpl();
-		/*
+    public static void main(String[] args) {
+        UsuarioExterno user = new UsuarioExterno();
+        Session se=(Session)em.getDelegate();
+        user.setId_persona(3);
+        em.getTransaction().begin();
+       se.createCriteria(OperacionDocumento.class).setProjection(Projections.property("documento")).add(Restrictions.eq("usuario", user)).list().forEach(System.out::println);
+        em.getTransaction().commit();
+        em.close();
+        //Session s=(Session) em.getDelegate();
+        // System.out.println(s.createCriteria(Area.class).add(Restrictions.eq("tipoArea", Tipos_Area._Fiscalizacion_y_Control)).uniqueResult()); 
+        //DocumentoImpl funci = new DocumentoImpl();
+        /*
 		 * Session Se=(Session)em.getDelegate(); Documento doc=new Documento();
 		 * doc.
 		 * setAsunto("Recursos de Apelación contra actos administrativos realizados dentro de los procesos de selección por Subasta Inversa"
 		 * ); doc.setCodigo("lol"); doc.setContenido_doc("dwdwdf");
 		 * doc.setNum_foleo(4); doc.setDisconforme(true);
 		 * System.out.println(funci.IsRegistradoyEnviado(3, doc, 4, false,3,1));
-		 */
-		/*Documento doc=new Documento();
+         */
+ /*Documento doc=new Documento();
 		doc.setAsunto("Recurso de Reconsideración contra Acuerdos de Concejo");
 		doc.setNum_foleo(1);
 		doc.setDisconforme(true);
 		doc.setCodigo("fefef");
 		doc.setContenido_doc("ddfghh");
 		System.out.println(funci.IsRegistradoyEnviado(3, doc, 2, true, 11,2 ));*/
-		/*em.getTransaction().begin();
+ /*em.getTransaction().begin();
 		Documento doc=em.find(Documento.class, 613);
 		em.getTransaction().commit();
 		em.close();
 		doc.setDisconforme(false);*/
-	
-		/*em.getTransaction().begin();
+
+ /*em.getTransaction().begin();
 		Documento doc=em.find(Documento.class, 619);
 		em.getTransaction().commit();
 		em.close();
 		doc.setDisconforme(false);
 		System.out.println(funci.EnviarArea(doc, 1));*/
 
-		/*em.getTransaction().begin();
+ /*em.getTransaction().begin();
 		Documento Doc=em.find(Documento.class,632);
 		em.getTransaction().commit();
 		em.close();
 		Doc.setDisconforme(false);
 		System.out.println(funci.EnviarArea(Doc, 1));*/
-		/*Documento doc=new Documento();
+ /*Documento doc=new Documento();
 		doc.setAsunto("Recurso de Reconsideración contra Acuerdos de Concejo");
 		doc.setCodigo("fefefe");
 		doc.setContenido_doc("ghjj");
 		doc.setDisconforme(true);
 		doc.setNum_foleo(1);
 		System.out.println(funci.IsRegistradoyEnviado(3, doc, 1, true, 11, 2));*/
-
-
-
-		/*em.getTransaction().begin();
+ /*em.getTransaction().begin();
 		Estado_documentos es = em.find(Estado_documentos.class, 1);
 		Documento doc = em.find(Documento.class, 100);
 
@@ -119,42 +125,40 @@ public class TestPersona {
 		em.persist(op2);
 		em.getTransaction().commit();
 		em.close();*/
-		// Se.createCriteria(Documento.class).add(Restrictions.idEq(76)).createAlias("operacionesDocumento",
-		// "oper").setProjection(Projections.property("oper.usuario")).list().forEach(System.out::println);
-		// Se.createCriteria(Documento.class).add(Restrictions.idEq(76)).createAlias("operacionEstados",
-		// "op").setProjection(Projections.property("op.estados")).list().forEach(System.out::println);
-		// Documento docu=em.find(Documento.class, 68);
-		// Operacion_EstadosDocumentos op=new
-		// Operacion_EstadosDocumentos(em.find(Estado_documentos.class,
-		// 3),em.find(Documento.class, 68));
-		// em.persist(op);
-
-		// funci.RegistrarYEnviar(1, doc,7, false, 75, 5);
-		// funci.EnviarArea(32, docu);
-
-		// System.out.println(funci.DevolucionEstado(2));
-		/*
+        // Se.createCriteria(Documento.class).add(Restrictions.idEq(76)).createAlias("operacionesDocumento",
+        // "oper").setProjection(Projections.property("oper.usuario")).list().forEach(System.out::println);
+        // Se.createCriteria(Documento.class).add(Restrictions.idEq(76)).createAlias("operacionEstados",
+        // "op").setProjection(Projections.property("op.estados")).list().forEach(System.out::println);
+        // Documento docu=em.find(Documento.class, 68);
+        // Operacion_EstadosDocumentos op=new
+        // Operacion_EstadosDocumentos(em.find(Estado_documentos.class,
+        // 3),em.find(Documento.class, 68));
+        // em.persist(op);
+        // funci.RegistrarYEnviar(1, doc,7, false, 75, 5);
+        // funci.EnviarArea(32, docu);
+        // System.out.println(funci.DevolucionEstado(2));
+        /*
 		 * UsuarioExternoJuridico ue=new UsuarioExternoJuridico();
 		 * ue.setApellido("Inga Antuga"); ue.setClave("dddd");
 		 * ue.setCodigo("fsdsds"); ue.setNombre("Antony");
 		 * ue.setCorreo_electronico("dfdfdf@fef"); ue.setOrganizacion("dded");
 		 * ue.setRuc(222323); ue.setDni(2312); ui.Registrar(ue);
-		 */
+         */
 
-		/*
+ /*
 		 * em.getTransaction().begin(); Persona pe=em.find(Persona.class,1);
 		 * pe.setNombre("Ej Antony"); em.flush(); MostrarTodo();
 		 * pe.setApellido("termino el commit"); em.getTransaction().commit();
 		 * em.close(); MostrarTodo();
-		 */
-		/*
+         */
+ /*
 		 * AllVentas(); em.getTransaction().begin(); Ventas v=new Ventas();
 		 * v.setId_Ventas(1); Persona pe=em.find(Persona.class, 3);
 		 * pe.EliminarVenta(v); em.getTransaction().commit(); em.close();
 		 * VentasIdPersona(3);
-		 */
+         */
 
-		/*
+ /*
 		 * em.getTransaction().begin(); Persona per=em.find(Persona.class, 1);
 		 * Session se=(Session)em.getDelegate();
 		 * 
@@ -169,19 +173,19 @@ public class TestPersona {
 		 * persistence context con todos los cambios realizados
 		 * em.getTransaction().commit(); em.close(); AllVentas(); MostrarTodo()
 		 * ;
-		 */
-		/*
+         */
+ /*
 		 * VentasIdPersona(1); em.getTransaction().begin(); Persona
 		 * pe=em.find(Persona.class, 1); em.remove(pe);
 		 * em.getTransaction().commit(); em.close(); VentasIdPersona(1);
-		 */
-		/*
+         */
+ /*
 		 * em.getTransaction().begin(); Persona pe1=em.find(Persona.class,2);
 		 * Session s=(Session)em.getDelegate(); s.evict(pe1);
 		 * pe1.getVentas().get(0).setVentaTotal(2304); em.merge(pe1);
 		 * em.getTransaction().commit(); em.close(); AllVentas();
-		 */
-		/*
+         */
+ /*
 		 * em.getTransaction().begin(); Persona pe=em.find(Persona.class,2);
 		 * pe.getVentas().size();//con este pequeño "hack " como esta ventas en
 		 * modo Lazy no se cargara las ventas hasta ejecutar este codigo depues
@@ -190,29 +194,29 @@ public class TestPersona {
 		 * s=(Session)em.getDelegate(); s.evict(pe);
 		 * pe.getVentas().get(0).setVentaTotal(455); em.merge(pe);
 		 * em.getTransaction().commit(); em.close();
-		 */
+         */
 
-		/*
+ /*
 		 * pe.getVentas().stream().map((ventas)->ventas.getDescriptcion())
 		 * .flatMap((descriptcion)->descriptcion.stream()).forEach((descripcion)
 		 * ->{System.out.println(descripcion.getId()+" "+descripcion.getProducto
 		 * ());});
-		 */
-		/*
+         */
+ /*
 		 * pe.getVentas().stream().map((ventas)->ventas.getDescriptcion())
 		 * .flatMap((desc)->desc.stream())
 		 * .distinct().forEachOrdered((descripcion)->{
 		 * System.out.println(descripcion.getId()+" Producto "+descripcion.
 		 * getProducto()+" Cantidad Producto"+descripcion.getCadtidadProducto()
 		 * +" Precio Total "+descripcion.getPrecioTotalProducto());});
-		 */
+         */
 
-		/*
+ /*
 		 * pe.getVentas().stream() .map((ventas)->ventas.getDescriptcion())
 		 * .flatMap((descripsion)->descripsion.stream())
 		 * .forEach(System.out::println);
-		 */
-		/*
+         */
+ /*
 		 * pe.getVentas().stream().forEach((venta)->{
 		 * System.out.println(venta.getId_Ventas()+" Venta Total "+venta.
 		 * getVentaTotal());
@@ -221,8 +225,8 @@ public class TestPersona {
 		 * +descripcion.getPrecioTotalProducto()+" Total Productos"+descripcion.
 		 * getCadtidadProducto()+"  Producto "+descripcion.getProducto());});
 		 * });
-		 */
-		/*
+         */
+ /*
 		 * try { File file=new File("C:\\Users\\tony\\Pictures\\loba.png");
 		 * FileInputStream f=new FileInputStream(file);
 		 * System.out.println(file.length());//agregar Fotos byte[] buffer=new
@@ -231,18 +235,18 @@ public class TestPersona {
 		 * System.out.println("erorr"+e.getMessage());
 		 * if(em.getTransaction().isActive()){ em.getTransaction().rollback(); }
 		 * }finally{ em.close(); }
-		 */
+         */
 
-		/*
+ /*
 		 * Query q=em.createQuery("from Persona p  where p.id_Persona=?1").
 		 * setFlushMode(javax.persistence.FlushModeType.COMMIT);
 		 * q.setParameter(1, 1); Persona p=(Persona)
 		 * q.setMaxResults(1).getSingleResult(); System.out.println(p);
 		 * p.setNombre("Esto Deta"); em.merge(p);
 		 * System.out.println(em.find(Persona.class,1));
-		 */
-		// Session s=(Session)em.getDelegate();
-		/*
+         */
+        // Session s=(Session)em.getDelegate();
+        /*
 		 * List<Ventas> p=(List<Ventas>)s.
 		 * createQuery("Select p.ventas from Persona p where p.id_Persona=:id").
 		 * setInteger("id",1).list(); for (Ventas persona : p) {
@@ -257,21 +261,21 @@ public class TestPersona {
 		 * persona2=(Persona)s.createCriteria(Persona.class).add(Restrictions.
 		 * like("nombre", "%Es%")).uniqueResult(); System.out.println(persona1);
 		 * System.out.println(persona2);
-		 */
-		/*
+         */
+ /*
 		 * System.out.println("Personas Ordenadas"); List<Persona>
 		 * personas=(List<Persona>)s.createCriteria(Persona.class).addOrder(
 		 * Order.asc("nombre")).list(); for (Persona persona : personas) {
 		 * System.out.println(persona); }
-		 */
-		/*
+         */
+ /*
 		 * System.out.println("ventas De 1 a 152"); List<Persona>
 		 * per=(List<Persona>)s.createCriteria(Persona.class).createCriteria(
 		 * "ventas").add(Restrictions.between("VentaTotal",91.0,1520.0)).list();
 		 * 
 		 * for (Persona persona : per) { System.out.println(persona); }
-		 */
-		/*
+         */
+ /*
 		 * List<Persona>
 		 * PersonaCriteria=(List<Persona>)s.createCriteria(Persona.class).
 		 * createCriteria("ventas").add(Restrictions.between("VentaTotal",12.0,
@@ -279,8 +283,8 @@ public class TestPersona {
 		 * .createCriteria("producto").add(Restrictions.eq("IdProducto", 2)).
 		 * addOrder(Order.asc("nombre")).list(); for (Persona persona :
 		 * PersonaCriteria) { System.out.println("Criteria"+persona); }
-		 */
-		/*
+         */
+ /*
 		 * Persona
 		 * pero=(Persona)s.createCriteria(Persona.class).createAlias("ventas",
 		 * "venta").add(Restrictions.eq("venta.VentaTotal",
@@ -289,8 +293,8 @@ public class TestPersona {
 		 * CreateCriteria se puede asociar La ventaja de CreateAlias esque
 		 * puedes Poner un SobreNombre //Pero deben ser para un array , es algo
 		 * como el FlatMap De Observable
-		 */
-		/*
+         */
+ /*
 		 * List<Object[]>
 		 * personas=(List<Object[]>)s.createCriteria(Persona.class).createAlias(
 		 * "ventas",
@@ -300,8 +304,8 @@ public class TestPersona {
 		 * 
 		 * for (Object[] persona : personas) {
 		 * System.out.println("toy"+((Persona)persona[1])); }
-		 */
-		/*
+         */
+ /*
 		 * List<Persona> per=(List<Persona>)s.createCriteria(Persona.class)
 		 * .createAlias("ventas", "v")
 		 * .add(Restrictions.between("v.VentaTotal",92.0,1520.0)).
@@ -310,8 +314,8 @@ public class TestPersona {
 		 * {//CriteriaSpecification.DISTINCT_ROO_ENTITY hace referencia a la
 		 * clase Raiz en este ejemplo es Persona.clas
 		 * System.out.println(persona); }
-		 */
-		/*
+         */
+ /*
 		 * Persona
 		 * pers=(Persona)s.createCriteria(Persona.class).setFetchMode("ventas",
 		 * FetchMode.LAZY).add(Restrictions.idEq(1)).uniqueResult();
@@ -321,50 +325,50 @@ public class TestPersona {
 		 * s.disconnect(); pers.setApellido("Inga Atunga Detahs");
 		 * em.merge(pers); pers.setNombre("Antony Detahs"); em.flush();
 		 * System.out.println(pers+" Ventas "+pers.getVentas());
-		 */
-		/*
+         */
+ /*
 		 * Persona per=new Persona(); per.setId_Persona(1);
 		 * per.setNombre("Esto Deta"); Persona
 		 * perso=(Persona)s.createCriteria(Persona.class).add(Example.create(per
 		 * )).uniqueResult(); System.out.println(perso); // crear un criterio a
 		 * partir de una instancia dada
-		 */
-		/*
+         */
+ /*
 		 * List<Persona> personas=(List<Persona>)s.getNamedQuery("all.Persona")
 		 * .setTimeout(2) .setCacheMode(CacheMode.REFRESH) .setCacheable(true)
 		 * .setComment("+idex(p id_persona_name)") .list(); for (Persona persona
 		 * : personas) { System.out.println(persona); }
-		 */
-		// Persona per=em.find(Persona.class,1);
-		// System.out.println(per.getVentas().get(0).getDescriptcion().get(0).getProducto().getNombre());
-		/*
+         */
+        // Persona per=em.find(Persona.class,1);
+        // System.out.println(per.getVentas().get(0).getDescriptcion().get(0).getProducto().getNombre());
+        /*
 		 * org.hibernate.Query
 		 * q=s.createQuery("from Persona p where p.id_Persona=:id"); Persona
 		 * pe=(Persona)q.setParameter("id",
 		 * 1,IntegerType.INSTANCE).uniqueResult(); System.out.println(pe);
-		 */
-		/*
+         */
+ /*
 		 * List<Ventas>
 		 * ve=(List<Ventas>)s.createCriteria(Ventas.class).setProjection(
 		 * Projections.avg("VentaTotal")).list(); for (Ventas ventas : ve) {
 		 * System.out.println(ventas); }
-		 */
-		/*
+         */
+ /*
 		 * s.createCriteria(Persona.class).add(Restrictions.and(Restrictions.eq(
 		 * "id", 2), Restrictions.between("venta",1520.0 , 450))).list();
 		 * List<Persona>
 		 * persn=(List<Persona>)s.createQuery("from Persona p").setLockOptions(
 		 * LockOptions.READ).list(); for (Persona persona : persn) {
 		 * persona.setNombre("Toy"); em.merge(persona); }
-		 */
-		// long
-		// pe=(long)s.createCriteria(Persona.class).setProjection(Projections.rowCount()).uniqueResult();//
-		// PRojection.rowCount() cuenta el numero de filas en la bd;
-		// el projection te carga objetos parciales en este ejemplo solo
-		// cargamos el nombre y cuando hay mas de una projections el ultimo sera
-		// cargado
+         */
+        // long
+        // pe=(long)s.createCriteria(Persona.class).setProjection(Projections.rowCount()).uniqueResult();//
+        // PRojection.rowCount() cuenta el numero de filas en la bd;
+        // el projection te carga objetos parciales en este ejemplo solo
+        // cargamos el nombre y cuando hay mas de una projections el ultimo sera
+        // cargado
 
-		/*
+        /*
 		 * Double
 		 * pro=(Double)s.createCriteria(Persona.class).createAlias("ventas",
 		 * "venta").setProjection(Projections.projectionList()
@@ -373,9 +377,9 @@ public class TestPersona {
 		 * per=(Persona)s.createCriteria(Persona.class).createAlias("ventas",
 		 * "venta").add(Restrictions.eq("venta.VentaTotal",
 		 * pro)).uniqueResult(); System.out.println(per);
-		 */
+         */
 
-		/*
+ /*
 		 * s.createCriteria(Persona.class).createAlias("ventas","venta")
 		 * .setResultTransformer(CriteriaSpecification.ROOT_ENTITY)
 		 * .setProjection(Projections.projectionList()
@@ -388,9 +392,9 @@ public class TestPersona {
 		 * Restrictions.eq("venta.personaVentas.id_Persona",
 		 * resu)).uniqueResult().toString());}); //por cada id de la persona que
 		 * los sume la VentaTotal
-		 */
+         */
 
-		/*
+ /*
 		 * s.createCriteria(Persona.class).createAlias("ventas",
 		 * "venta").setProjection(Projections.projectionList().add(Projections.
 		 * id()).getProjection(0)).setResultTransformer(CriteriaSpecification.
@@ -399,10 +403,10 @@ public class TestPersona {
 		 * +" "+s.createCriteria(Persona.class).createAlias("ventas",
 		 * "venta").setProjection(Projections.max("venta.VentaTotal")).add(
 		 * Restrictions.idEq(idUsuario)).uniqueResult().toString()));
-		 */
-		// s.createQuery("Select p.nombre,p.apellido,p.id_Persona from Persona
-		// p").setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).setResultTransformer(CriteriaSpecification.ALIAS_TO_ENTITY_MAP).list().forEach(System.out::println);
-		/*
+         */
+        // s.createQuery("Select p.nombre,p.apellido,p.id_Persona from Persona
+        // p").setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).setResultTransformer(CriteriaSpecification.ALIAS_TO_ENTITY_MAP).list().forEach(System.out::println);
+        /*
 		 * for(int i=1;i<=3;i++){
 		 * s.createCriteria(Persona.class).createAlias("ventas","venta").
 		 * setProjection(Projections.projectionList().add(Projections.count(
@@ -411,43 +415,43 @@ public class TestPersona {
 		 * "venta.VentaTotal")).list().stream().forEach(System.out::println);
 		 * 
 		 * }
-		 */
-               // Inicio();
-	}
+         */
+        //   Inicio();
+    }
 
-	private static void Inicio() {
-		em.getTransaction().begin();
-		for (Estado_Concluido es : Estado_Concluido.values()) {
-			Concluido con = new Concluido();
-			con.setEstadoConcluido(es);
-			em.persist(con);
-		}
-		for (Estado_documento estado : Estado_documento.values()) {
-			Estado_documentos est = new Estado_documentos();
-			est.setEstado(estado);
-			em.persist(est);
-		}
-		for (com.tony.Estados.Tipo_Documento tipo : com.tony.Estados.Tipo_Documento.values()) {
-			Tipo_Documento ti = new Tipo_Documento();
-			ti.setTipoDocumento(tipo);
-			em.persist(ti);
-		}
-		for (Tipo_Perfil_UsuarioInterno tipoI : Tipo_Perfil_UsuarioInterno.values()) {
-			Perfil per = new Perfil();
-			per.setTipoPerfil(tipoI);
-			em.persist(per);
-		}
-		for (Tipos_Area ar : Tipos_Area.values()) {
-			Area are = new Area();
-			are.setTipoArea(ar);
-			em.persist(are);
-		}
-		em.getTransaction().commit();
-		em.close();
+    private static void Inicio() {
+        em.getTransaction().begin();
+        for (Estado_Concluido es : Estado_Concluido.values()) {
+            Concluido con = new Concluido();
+            con.setEstadoConcluido(es);
+            em.persist(con);
+        }
+        for (Estado_documento estado : Estado_documento.values()) {
+            Estado_documentos est = new Estado_documentos();
+            est.setEstado(estado);
+            em.persist(est);
+        }
+        for (com.tony.Estados.Tipo_Documento tipo : com.tony.Estados.Tipo_Documento.values()) {
+            Tipo_Documento ti = new Tipo_Documento();
+            ti.setTipoDocumento(tipo);
+            em.persist(ti);
+        }
+        for (Tipo_Perfil_UsuarioInterno tipoI : Tipo_Perfil_UsuarioInterno.values()) {
+            Perfil per = new Perfil();
+            per.setTipoPerfil(tipoI);
+            em.persist(per);
+        }
+        for (Tipos_Area ar : Tipos_Area.values()) {
+            Area are = new Area();
+            are.setTipoArea(ar);
+            em.persist(are);
+        }
+        em.getTransaction().commit();
+        em.close();
 
-	}
+    }
 
-	/*
+    /*
 	 * private static void MostrarTodo() { EntityManager em =
 	 * emf.createEntityManager(); List<Persona> personas = (List<Persona>)
 	 * em.createNamedQuery("all.Persona", Persona.class).getResultList();
@@ -471,5 +475,5 @@ public class TestPersona {
 	 * em=emf.createEntityManager(); for (Ventas venta :
 	 * em.createNamedQuery("all.ventas",Ventas.class).getResultList()) {
 	 * System.out.println(venta); } em.close(); }
-	 */
+     */
 }

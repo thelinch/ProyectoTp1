@@ -51,10 +51,12 @@ private List<AuditoriaUsuario> AuditoriaUsuario=new ArrayList<>();;
 	}
 
 	public Usuario_interno getUsuario() {
+            
 		return usuario;
 	}
 
 	public void setUsuario(Usuario_interno usuario) {
+            
 		this.usuario = usuario;
 	}
 
@@ -63,6 +65,7 @@ private List<AuditoriaUsuario> AuditoriaUsuario=new ArrayList<>();;
 	}
 
 	public void setDocumento(Documento documento) {
+            
 		this.documento = documento;
 	}
 

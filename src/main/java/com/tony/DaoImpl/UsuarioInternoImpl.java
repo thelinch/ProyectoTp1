@@ -8,6 +8,7 @@ package com.tony.DaoImpl;
 import com.tony.Dao.IUsuarioInterno;
 import com.tony.models.Documento.Documento;
 import com.tony.models.Documento.Estado_documentos;
+import com.tony.models.Documento.Operacion_EstadosDocumentos;
 import com.tony.models.Documento.Tipo_Documento;
 import com.tony.models.UsuarioExterrno.UsuarioExterno;
 import com.tony.models.UsuarioInterno.Usuario_interno;
@@ -79,6 +80,11 @@ public class UsuarioInternoImpl implements IUsuarioInterno {
 
     @Override
     public Estado_documentos get_estado(Documento documento) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Operacion_EstadosDocumentos> get_flujograma_documento(Documento documento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
