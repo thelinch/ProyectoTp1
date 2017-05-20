@@ -65,7 +65,7 @@ public class TestPersona {
 
 	public static void main(String[] args) {
            Session s=(Session) em.getDelegate();
-            System.out.println(s.createCriteria(Area.class).add(Restrictions.eq("tipoArea", Tipos_Area._Fiscalizacion_y_Control)).uniqueResult()); 
+           // System.out.println(s.createCriteria(Area.class).add(Restrictions.eq("tipoArea", Tipos_Area._Fiscalizacion_y_Control)).uniqueResult()); 
 		//DocumentoImpl funci = new DocumentoImpl();
 		/*
 		 * Session Se=(Session)em.getDelegate(); Documento doc=new Documento();

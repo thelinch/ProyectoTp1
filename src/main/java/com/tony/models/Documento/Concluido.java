@@ -13,46 +13,46 @@ import com.tony.Estados.Estado_Concluido;
  *
  */
 @Entity
-@Table(name="concluido")
+@Table(name = "concluido")
 public class Concluido implements Serializable {
-@Id
-@GeneratedValue(strategy=GenerationType.SEQUENCE)
-private int id_concluido;
-@Enumerated(EnumType.STRING)
-@Column(nullable=false)
-private Estado_Concluido estadoConcluido; 
-	
-	private static final long serialVersionUID = 1L;
-@OneToMany(mappedBy="concluido",cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH})
-private List<Documento> documentos;
 
-	public Concluido() {
-		this.documentos=new ArrayList<>();
-	}
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id_concluido;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Estado_Concluido estadoConcluido;
 
-	public int getId_concluido() {
-		return id_concluido;
-	}
+    @OneToMany(mappedBy = "concluido", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH})
+    private List<Documento> documentos;
 
-	public void setId_concluido(int id_concluido) {
-		this.id_concluido = id_concluido;
-	}
+    public Concluido() {
+        this.documentos = new ArrayList<>();
+    }
 
-	public Estado_Concluido getEstadoConcluido() {
-		return estadoConcluido;
-	}
+    public int getId_concluido() {
+        return id_concluido;
+    }
 
-	public void setEstadoConcluido(Estado_Concluido estadoConcluido) {
-		this.estadoConcluido = estadoConcluido;
-	}
+    public void setId_concluido(int id_concluido) {
+        this.id_concluido = id_concluido;
+    }
 
-	public List<Documento> getDocumentos() {
-		return documentos;
-	}
+    public Estado_Concluido getEstadoConcluido() {
+        return estadoConcluido;
+    }
 
-	public void setDocumentos(List<Documento> documentos) {
-		this.documentos = documentos;
-	}
-	
-   
+    public void setEstadoConcluido(Estado_Concluido estadoConcluido) {
+        this.estadoConcluido = estadoConcluido;
+    }
+
+    public List<Documento> getDocumentos() {
+        return documentos;
+    }
+
+    public void setDocumentos(List<Documento> documentos) {
+        this.documentos = documentos;
+    }
+
 }

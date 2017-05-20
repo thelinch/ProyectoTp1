@@ -7,6 +7,7 @@ package com.tony.DaoImpl;
 
 import com.tony.Dao.IUsuarioInterno;
 import com.tony.models.Documento.Documento;
+import com.tony.models.Documento.Estado_documentos;
 import com.tony.models.Documento.Tipo_Documento;
 import com.tony.models.UsuarioExterrno.UsuarioExterno;
 import com.tony.models.UsuarioInterno.Usuario_interno;
@@ -26,10 +27,11 @@ public class UsuarioInternoImpl implements IUsuarioInterno {
             em.getTransaction().begin();
             em.persist(usuario);
             em.getTransaction().commit();
-            operacion = false;
+            operacion = true;
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
+                System.out.println("Mensaje de UsuarioInternoImpl:Registrar_usuarioExterno");
             }
         }
         return operacion;
@@ -72,6 +74,11 @@ public class UsuarioInternoImpl implements IUsuarioInterno {
 
     @Override
     public void Resolver_documento(Documento documento) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Estado_documentos get_estado(Documento documento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
