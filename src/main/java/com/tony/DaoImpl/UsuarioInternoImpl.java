@@ -74,11 +74,6 @@ public class UsuarioInternoImpl implements IUsuarioInterno {
     }
 
     @Override
-    public void Resolver_documento(Documento documento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public Estado_documentos get_estado(Documento documento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

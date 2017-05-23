@@ -10,4 +10,5 @@ boolean Registrar(Persona persona);
 int NumeroDocumentos(int DniPersona);
 List<Documento> DocumentosPersona(Persona person);
 boolean AddDocumentosPersona(Persona Actual,Documento doc,Persona Derivada);
+
 }

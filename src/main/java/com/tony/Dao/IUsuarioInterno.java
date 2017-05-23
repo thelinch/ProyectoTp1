@@ -35,7 +35,6 @@ public interface IUsuarioInterno {
 
     boolean Derivar_documento(Usuario_interno usuario_interno);
 
-    void Resolver_documento(Documento documento);
 
     Estado_documentos get_estado(Documento documento);
 

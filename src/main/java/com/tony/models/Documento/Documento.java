@@ -67,7 +67,7 @@ public class Documento implements Serializable {
 private List<Usuario_interno> usuarios;*/
     @OneToMany(mappedBy = "documento", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
     private List<OperacionDocumento> operacionesDocumento = new ArrayList<>();
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_concluido")
     private Concluido concluido;
 
