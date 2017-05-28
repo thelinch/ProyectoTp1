@@ -8,7 +8,6 @@ import javax.persistence.*;
  *
  */
 @Entity
-
 public class UsuarioExternoNatural extends UsuarioExterno implements Serializable {
 
 	

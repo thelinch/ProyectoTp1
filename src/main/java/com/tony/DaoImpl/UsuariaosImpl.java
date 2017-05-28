@@ -7,12 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import com.tony.Dao.IUsuarios;
-import com.tony.Estados.Tipo_Perfil_UsuarioInterno;
 import com.tony.HerenciaEntidades.Persona;
 import com.tony.models.Documento.Documento;
-import com.tony.models.Documento.Estado_documentos;
 import com.tony.models.UsuarioExterrno.UsuarioExterno;
-import com.tony.models.UsuarioInterno.Usuario_interno;
 
 public class UsuariaosImpl implements IUsuarios {
 	private static EntityManager em = Entidad.getEntidad().getEntidadManager();

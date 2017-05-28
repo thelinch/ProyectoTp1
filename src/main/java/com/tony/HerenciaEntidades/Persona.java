@@ -1,12 +1,9 @@
 package com.tony.HerenciaEntidades;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.*;
 
-import com.tony.models.Documento.Documento;
 
 /**
  * Entity implementation class for Entity: Persona

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tony.Dao;
+package com.tony.ServiceoDao;
 
 import com.tony.models.Documento.Documento;
 import com.tony.models.Documento.Estado_documentos;
@@ -12,12 +12,14 @@ import com.tony.models.Documento.Tipo_Documento;
 import com.tony.models.UsuarioExterrno.UsuarioExterno;
 import com.tony.models.UsuarioInterno.Usuario_interno;
 import java.util.List;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author antony
  */
-public interface IUsuarioInterno {
+public interface UsuarioInternoServiceDao {
 
     boolean Registrar_usuarioExterno(UsuarioExterno usuario);
 
@@ -27,9 +29,9 @@ public interface IUsuarioInterno {
 
     boolean Editar_documento(Documento documento);
 
-    List<Usuario_interno> All_usuarios_internos(Usuario_interno Usuario_gerente);
+    DefaultTableModel All_usuarios_internos(Usuario_interno Usuario_gerente);
 
-    List<UsuarioExterno> All_usuarios_externos();
+    DefaultTableModel All_usuarios_externos(JTable tabla);
 
     boolean add_documentoUsuarioExterno(Documento documento, Usuario_interno usuario_interno, UsuarioExterno usuario_externo);
 
@@ -37,6 +39,6 @@ public interface IUsuarioInterno {
 
     Estado_documentos get_estado(Documento documento);
 
-    List<Operacion_EstadosDocumentos> get_flujograma_documento(Documento documento);
+    DefaultTableModel get_flujograma_documento(Documento documento);
 
 }

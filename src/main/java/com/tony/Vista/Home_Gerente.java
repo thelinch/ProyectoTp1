@@ -5,7 +5,6 @@
  */
 package com.tony.Vista;
 
-
 import java.awt.Button;
 import java.awt.Component;
 import javax.swing.JTable;
@@ -24,7 +23,7 @@ public class Home_Gerente extends javax.swing.JFrame {
      */
     public Home_Gerente() {
         initComponents();
-  
+
     }
 
     /**
@@ -207,6 +206,7 @@ public class Home_Gerente extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -231,13 +231,13 @@ public class Home_Gerente extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Home_Gerente().setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -258,5 +258,4 @@ public class Home_Gerente extends javax.swing.JFrame {
     private javax.swing.JTable jTable_Documentos_Gerente;
     // End of variables declaration//GEN-END:variables
 
-   
 }
