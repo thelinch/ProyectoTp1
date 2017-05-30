@@ -31,7 +31,7 @@ public interface UsuarioInternoServiceDao {
 
     DefaultTableModel All_usuarios_internos(Usuario_interno Usuario_gerente);
 
-    DefaultTableModel All_usuarios_externos(JTable tabla);
+    DefaultTableModel All_usuarios_externos(JTable tabla,int inicio,int Final);
 
     boolean add_documentoUsuarioExterno(Documento documento, Usuario_interno usuario_interno, UsuarioExterno usuario_externo);
 

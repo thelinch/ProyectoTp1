@@ -99,10 +99,11 @@ private List<AuditoriaDocumento> auditoriaDocumentos=new ArrayList<>();
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Operacion_EstadosDocumentos [id_operacioEstados=" + id_operacioEstados + ", estados=" + estados + "]";
-	}
+    @Override
+    public String toString() {
+        return "Operacion_EstadosDocumentos{" + "id_operacioEstados=" + id_operacioEstados + ", estados=" + estados + ", documento=" + documento + '}';
+    }
+
 
 	
 

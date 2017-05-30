@@ -6,6 +6,7 @@
 package com.tony.ServiceImpl;
 
 import java.util.List;
+import javax.persistence.EntityManager;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,12 +16,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Padre {
 
-    protected DefaultTableModel pintarTabla(JTable tabla, List<Object> objeto) {
-        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-        modelo.setRowCount(0);
-         for (Object object : objeto) {
-            modelo.addRow(rowData);
-        }
-        return modelo;
+//    protected DefaultTableModel pintarTabla(JTable tabla, List<Object> objeto) {
+//        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+//        modelo.setRowCount(0);
+//         for (Object object : objeto) {
+//            modelo.addRow(rowData);
+//        }
+//        return modelo;
+//    }
+ 
     }
-}
+    
+

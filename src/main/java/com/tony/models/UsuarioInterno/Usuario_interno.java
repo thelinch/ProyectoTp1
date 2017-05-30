@@ -14,7 +14,10 @@ import com.tony.models.Documento.OperacionDocumento;
  *
  */
 @Entity
-
+@NamedQueries({
+    @NamedQuery(name = "Usuario_interno.all", query = "Select a from Usuario_interno a"),
+    @NamedQuery(name = "Usuario_interno.find.Perfil", query = "Select a from Usuario_interno a WHERE a.perfil.tipoPerfil=:perfil"),
+    @NamedQuery(name = "Usuario_interno.find.Area", query = "SELECT  a from Usuario_interno a where a.area.tipoArea=:area")})
 public class Usuario_interno extends Persona implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -66,6 +69,21 @@ public class Usuario_interno extends Persona implements Serializable {
 
     public void setOperacionUsuarioInterno(List<OperacionDocumento> operacionUsuarioInterno) {
         this.operacionUsuarioInterno = operacionUsuarioInterno;
+    }
+        
+    @Override
+    public String getCodigo() {
+        return super.getCodigo(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getClave() {
+        return super.getClave(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getApellido() {
+        return super.getApellido(); //To change body of generated methods, choose Tools | Templates.
     }
 
     public Usuario_interno(String nombre, String apellido, int dni, String codigo, String clave, Perfil perfil, Area area) {

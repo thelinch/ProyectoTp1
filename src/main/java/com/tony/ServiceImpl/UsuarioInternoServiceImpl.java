@@ -5,6 +5,7 @@
  */
 package com.tony.ServiceImpl;
 
+import com.tony.DaoImpl.Entidad;
 import com.tony.DaoImpl.UsuarioInternoImpl;
 import com.tony.ServiceoDao.UsuarioInternoServiceDao;
 import com.tony.models.Documento.Documento;
@@ -12,6 +13,8 @@ import com.tony.models.Documento.Estado_documentos;
 import com.tony.models.Documento.Tipo_Documento;
 import com.tony.models.UsuarioExterrno.UsuarioExterno;
 import com.tony.models.UsuarioInterno.Usuario_interno;
+import java.util.List;
+import javax.persistence.EntityManager;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -50,9 +53,11 @@ public class UsuarioInternoServiceImpl implements UsuarioInternoServiceDao {
     }
 
     @Override
-    public DefaultTableModel All_usuarios_externos(JTable tabla) {
-        
-    
+    public DefaultTableModel All_usuarios_externos(JTable tabla,int inicio,int Final) {
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        List<UsuarioExterno> usuariosExternos=this.usuariImpl.All_usuarios_externos(inicio,Final);
+        return modelo;
+
     }
 
     @Override

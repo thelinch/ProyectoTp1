@@ -59,20 +59,27 @@ import com.tony.DaoImpl.DocumentoImpl;
 import com.tony.DaoImpl.Entidad;
 import com.tony.DaoImpl.PersonaImpl;
 import com.tony.DaoImpl.UsuariaosImpl;
+import com.tony.DaoImpl.UsuarioInternoImpl;
 
 public class TestPersona {
-
-    private static EntityManager em = Entidad.getEntidad().getEntidadManager();
-    static PersonaImpl perons = new PersonaImpl();
+//
+// private static EntityManager em = Entidad.getEntidad().getEntidadManager();
+//  static PersonaImpl perons = new PersonaImpl();
 
     public static void main(String[] args) {
-        UsuarioExterno user = new UsuarioExterno();
-        Session se=(Session)em.getDelegate();
-        user.setId_persona(3);
-        em.getTransaction().begin();
-       se.createCriteria(OperacionDocumento.class).setProjection(Projections.property("documento")).add(Restrictions.eq("usuario", user)).list().forEach(System.out::println);
-        em.getTransaction().commit();
-        em.close();
+
+        UsuarioInternoImpl user = new UsuarioInternoImpl();
+        Documento doc = new Documento();
+        doc.setId_documento(2);
+        user.get_estado(doc);
+//        UsuarioExterno user = new UsuarioExterno();
+//        Session se=(Session)em.getDelegate();
+//        user.setId_persona(3);
+//        em.getTransaction().begin();
+//       se.createCriteria(OperacionDocumento.class).setProjection(Projections.property("documento")).add(Restrictions.eq("usuario", user)).list().forEach(System.out::println);
+//        em.getTransaction().commit();
+//        em.close();
+
         //Session s=(Session) em.getDelegate();
         // System.out.println(s.createCriteria(Area.class).add(Restrictions.eq("tipoArea", Tipos_Area._Fiscalizacion_y_Control)).uniqueResult()); 
         //DocumentoImpl funci = new DocumentoImpl();
@@ -419,37 +426,37 @@ public class TestPersona {
         //   Inicio();
     }
 
-    private static void Inicio() {
-        em.getTransaction().begin();
-        for (Estado_Concluido es : Estado_Concluido.values()) {
-            Concluido con = new Concluido();
-            con.setEstadoConcluido(es);
-            em.persist(con);
-        }
-        for (Estado_documento estado : Estado_documento.values()) {
-            Estado_documentos est = new Estado_documentos();
-            est.setEstado(estado);
-            em.persist(est);
-        }
-        for (com.tony.Estados.Tipo_Documento tipo : com.tony.Estados.Tipo_Documento.values()) {
-            Tipo_Documento ti = new Tipo_Documento();
-            ti.setTipoDocumento(tipo);
-            em.persist(ti);
-        }
-        for (Tipo_Perfil_UsuarioInterno tipoI : Tipo_Perfil_UsuarioInterno.values()) {
-            Perfil per = new Perfil();
-            per.setTipoPerfil(tipoI);
-            em.persist(per);
-        }
-        for (Tipos_Area ar : Tipos_Area.values()) {
-            Area are = new Area();
-            are.setTipoArea(ar);
-            em.persist(are);
-        }
-        em.getTransaction().commit();
-        em.close();
-
-    }
+//    private static void Inicio() {
+//        em.getTransaction().begin();
+//        for (Estado_Concluido es : Estado_Concluido.values()) {
+//            Concluido con = new Concluido();
+//            con.setEstadoConcluido(es);
+//            em.persist(con);
+//        }
+//        for (Estado_documento estado : Estado_documento.values()) {
+//            Estado_documentos est = new Estado_documentos();
+//            est.setEstado(estado);
+//            em.persist(est);
+//        }
+//        for (com.tony.Estados.Tipo_Documento tipo : com.tony.Estados.Tipo_Documento.values()) {
+//            Tipo_Documento ti = new Tipo_Documento();
+//            ti.setTipoDocumento(tipo);
+//            em.persist(ti);
+//        }
+//        for (Tipo_Perfil_UsuarioInterno tipoI : Tipo_Perfil_UsuarioInterno.values()) {
+//            Perfil per = new Perfil();
+//            per.setTipoPerfil(tipoI);
+//            em.persist(per);
+//        }
+//        for (Tipos_Area ar : Tipos_Area.values()) {
+//            Area are = new Area();
+//            are.setTipoArea(ar);
+//            em.persist(are);
+//        }
+//        em.getTransaction().commit();
+//        em.close();
+//
+//    }
 
     /*
 	 * private static void MostrarTodo() { EntityManager em =

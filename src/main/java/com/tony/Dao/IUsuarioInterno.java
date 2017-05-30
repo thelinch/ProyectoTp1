@@ -27,9 +27,9 @@ public interface IUsuarioInterno {
 
     boolean Editar_documento(Documento documento);
 
-    List<Usuario_interno> All_usuarios_internos(Usuario_interno Usuario_gerente);
+    List<Usuario_interno> All_usuarios_internos(Usuario_interno Usuario_gerente,int inicio,int Final);
 
-    List<UsuarioExterno> All_usuarios_externos();
+    List<UsuarioExterno> All_usuarios_externos(int Inicio,int Final);
 
     boolean add_documentoUsuarioExterno(Documento documento, Usuario_interno usuario_interno, UsuarioExterno usuario_externo);
 
