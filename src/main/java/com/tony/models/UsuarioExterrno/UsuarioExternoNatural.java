@@ -10,11 +10,14 @@ import javax.persistence.*;
 @Entity
 public class UsuarioExternoNatural extends UsuarioExterno implements Serializable {
 
-	
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public UsuarioExternoNatural() {
-		
-	}
-   
+    public UsuarioExternoNatural() {
+
+    }
+
+    public UsuarioExternoNatural(String nombre, String apellido, int dni, String Correo, String telefono) {
+        super(nombre, apellido, dni, Correo, telefono);
+    }
+
 }

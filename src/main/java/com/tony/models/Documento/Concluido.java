@@ -31,6 +31,13 @@ public class Concluido implements Serializable {
         this.documentos = new ArrayList<>();
     }
 
+    public void Add_documento_concluido(Documento documento) {
+        if (this.documentos.isEmpty() || !this.documentos.contains(documento)) {
+            this.documentos.add(documento);
+            documento.setConcluido(this);
+        }
+    }
+
     public int getId_concluido() {
         return id_concluido;
     }

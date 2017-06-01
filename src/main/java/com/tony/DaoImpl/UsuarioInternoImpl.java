@@ -170,20 +170,7 @@ public class UsuarioInternoImpl implements IUsuarioInterno {
                     .add(Restrictions.eq("documentoBuscar.id_documento", documento.getId_documento())).setProjection(Projections.property("estados"))
                     .list();
             lista.forEach(System.out::println);
-            lista.stream().sorted(new Comparator<Estado_documentos>() {
-                @Override
-                public int compare(Estado_documentos o1, Estado_documentos o2) {
-                    if (o1.getId_estadoDocumento() >= o2.getId_estadoDocumento()) {
-                        return 0;
-                    }
-                    return 1;
-                }
-            });
-            //////////PRGUNTAR AL PROFE //////////////
-            lista.stream().forEach(System.out::println);
-            estado = new Estado_documentos();
-            estado.setEstado(lista.get(lista.size() - 1).getEstado());
-            estado.setId_estadoDocumento(lista.get(lista.size() - 1).getId_estadoDocumento());
+            estado = lista.stream().max(Comparator.comparingInt(Estado_documentos::getId_estadoDocumento)).get();
             em.getTransaction().commit();
 
         } catch (Exception e) {

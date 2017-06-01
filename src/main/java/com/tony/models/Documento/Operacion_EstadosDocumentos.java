@@ -13,102 +13,101 @@ import com.tony.Listeners.OperacionEstadoDocumentoListener;
  *
  */
 @Entity
-@Table(name="operacion_EstadosDocumentos")
-@EntityListeners(value=OperacionEstadoDocumentoListener.class)
+@Table(name = "operacion_EstadosDocumentos")
+@EntityListeners(value = OperacionEstadoDocumentoListener.class)
 public class Operacion_EstadosDocumentos implements Serializable {
-@Id
-@GeneratedValue(strategy=GenerationType.SEQUENCE)
-private int id_operacioEstados;
-@ManyToOne(fetch=FetchType.LAZY)
-@JoinColumn(name="id_estados",nullable=false)
-private Estado_documentos estados;
-@ManyToOne(fetch=FetchType.LAZY)
-@JoinColumn(name="id_documento",nullable=false)
-private Documento documento;
-@OneToMany(mappedBy="Operacion_estadoDocumento",cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE,CascadeType.DETACH},orphanRemoval=true)
-private List<AuditoriaDocumento> auditoriaDocumentos=new ArrayList<>();
-	private static final long serialVersionUID = 1L;
 
-	public Operacion_EstadosDocumentos() {
-		
-	}
-	public void AddAuditoriaDocumento(AuditoriaDocumento auditoria){
-		if(this.auditoriaDocumentos.isEmpty() || !this.auditoriaDocumentos.contains(auditoria)){
-			this.auditoriaDocumentos.add(auditoria);
-			auditoria.setOperacion_estadoDocumento(this);
-		}
-	}
+    private static final long serialVersionUID = 1L;
 
-	public Operacion_EstadosDocumentos(Estado_documentos estados, Documento documento) {
-		this.estados = estados;
-		this.documento = documento;
-		}
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id_operacioEstados;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_estados", nullable = false)
+    private Estado_documentos estados;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_documento", nullable = false)
+    private Documento documento;
+    @OneToMany(mappedBy = "Operacion_estadoDocumento", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE, CascadeType.DETACH}, orphanRemoval = true)
+    private List<AuditoriaDocumento> auditoriaDocumentos = new ArrayList<>();
 
-	public int getId_operacioEstados() {
-		return id_operacioEstados;
-	}
+    public Operacion_EstadosDocumentos() {
+        this.auditoriaDocumentos = new ArrayList<>();
+    }
 
-	public void setId_operacioEstados(int id_operacioEstados) {
-		this.id_operacioEstados = id_operacioEstados;
-	}
+    public void AddAuditoriaDocumento(AuditoriaDocumento auditoria) {
+        if (this.auditoriaDocumentos.isEmpty() || !this.auditoriaDocumentos.contains(auditoria)) {
+            this.auditoriaDocumentos.add(auditoria);
+            auditoria.setOperacion_estadoDocumento(this);
+        }
+    }
 
-	public Estado_documentos getEstados() {
-		return estados;
-	}
+    public Operacion_EstadosDocumentos(Estado_documentos estados, Documento documento) {
+        this.estados = estados;
+        this.documento = documento;
+    }
 
-	public void setEstados(Estado_documentos estados) {
-		this.estados = estados;
-	}
+    public int getId_operacioEstados() {
+        return id_operacioEstados;
+    }
 
-	public Documento getDocumento() {
-		return documento;
-	}
+    public void setId_operacioEstados(int id_operacioEstados) {
+        this.id_operacioEstados = id_operacioEstados;
+    }
 
-	public void setDocumento(Documento documento) {
-		this.documento = documento;
-	}
+    public Estado_documentos getEstados() {
+        return estados;
+    }
 
-	public List<AuditoriaDocumento> getAuditoriaDocumentos() {
-		return auditoriaDocumentos;
-	}
+    public void setEstados(Estado_documentos estados) {
+        this.estados = estados;
+    }
 
-	public void setAuditoriaDocumentos(List<AuditoriaDocumento> auditoriaDocumentos) {
-		this.auditoriaDocumentos = auditoriaDocumentos;
-	}
-	
+    public Documento getDocumento() {
+        return documento;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id_operacioEstados;
-		return result;
-	}
+    public void setDocumento(Documento documento) {
+        this.documento = documento;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Operacion_EstadosDocumentos other = (Operacion_EstadosDocumentos) obj;
-		if (id_operacioEstados != other.id_operacioEstados)
-			return false;
-		return true;
-	}
+    public List<AuditoriaDocumento> getAuditoriaDocumentos() {
+        return auditoriaDocumentos;
+    }
+
+    public void setAuditoriaDocumentos(List<AuditoriaDocumento> auditoriaDocumentos) {
+        this.auditoriaDocumentos = auditoriaDocumentos;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + id_operacioEstados;
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Operacion_EstadosDocumentos other = (Operacion_EstadosDocumentos) obj;
+        if (id_operacioEstados != other.id_operacioEstados) {
+            return false;
+        }
+        return true;
+    }
 
     @Override
     public String toString() {
         return "Operacion_EstadosDocumentos{" + "id_operacioEstados=" + id_operacioEstados + ", estados=" + estados + ", documento=" + documento + '}';
     }
 
-
-	
-
-	
-
-	
-   
 }

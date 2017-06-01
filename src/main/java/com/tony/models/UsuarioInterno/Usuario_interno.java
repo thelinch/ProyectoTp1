@@ -76,20 +76,15 @@ public class Usuario_interno extends Persona implements Serializable {
         return super.getCodigo(); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public String getClave() {
-        return super.getClave(); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
     @Override
     public String getApellido() {
         return super.getApellido(); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Usuario_interno(String nombre, String apellido, int dni, String codigo, String clave, Perfil perfil, Area area) {
-        super(nombre, apellido, dni, codigo, clave);
-        this.perfil = perfil;
-        this.area = area;
+    public Usuario_interno(String nombre, String apellido, int dni) {
+        super(nombre, apellido, dni);
+        
     }
 
     @Override

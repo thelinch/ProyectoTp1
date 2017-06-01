@@ -37,9 +37,9 @@ private List<AuditoriaUsuario> AuditoriaUsuario=new ArrayList<>();;
 		this.usuario = usuario;
 		this.documento = documento;
 	}
-   public void AddAuditoriaUsuario(AuditoriaUsuario auidi){
-	   if(this.AuditoriaUsuario.isEmpty() || !this.AuditoriaUsuario.contains(auidi)){
-		   this.AuditoriaUsuario.add(auidi);
+   public void AddAuditoriaUsuario(AuditoriaUsuario auiditoria){
+	   if(this.AuditoriaUsuario.isEmpty() || !this.AuditoriaUsuario.contains(auiditoria)){
+		   this.AuditoriaUsuario.add(auiditoria);
 	   }
    }
 	public int getId_OperacionDocumento() {

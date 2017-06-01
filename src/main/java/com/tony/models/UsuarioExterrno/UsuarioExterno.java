@@ -27,6 +27,12 @@ public class UsuarioExterno extends Persona implements Serializable {
 
     }
 
+    public UsuarioExterno(String nombre, String apellido, int dni, String Correo, String telefono) {
+        super(nombre, apellido, dni);
+        this.correo_electronico = Correo;
+        this.telefono = telefono;
+    }
+
     public void addDocumento(Documento doc) {
         if (this.documentos.isEmpty() || !this.documentos.contains(doc)) {
             this.documentos.add(doc);

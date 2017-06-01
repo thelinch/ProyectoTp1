@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-
 /**
  * Entity implementation class for Entity: Persona
  *
@@ -31,29 +30,27 @@ public abstract class Persona implements Serializable {
     protected int dni;
     @Column(name = "codigo", nullable = false)
     protected String codigo;
-    @Column(name = "clave", nullable = false)
-    protected String clave;
     @Column(name = "correo_electronico")
     protected String correo_electronico;
     @Column(name = "telefono")
     protected String telefono;
     @Column(name = "sesion", nullable = false)
     protected boolean IsSesion = false;
+
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, int dni, String codigo, String clave) {
+    public Persona(String nombre, String apellido, int dni) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
-        this.codigo = codigo;
-        this.clave = clave;
     }
 
     public void setIsSesion(boolean IsSesion) {
         this.IsSesion = IsSesion;
     }
-    public boolean getIsSesion(){
+
+    public boolean getIsSesion() {
         return this.IsSesion;
     }
 
@@ -97,14 +94,6 @@ public abstract class Persona implements Serializable {
         this.codigo = codigo;
     }
 
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
     public String getCorreo_electronico() {
         return correo_electronico;
     }
@@ -124,7 +113,7 @@ public abstract class Persona implements Serializable {
     @Override
     public String toString() {
         return "Persona [id_persona=" + id_persona + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni
-                + ", codigo=" + codigo + ", clave=" + clave + ", correo_electronico=" + correo_electronico
+                + ", codigo=" + codigo + ", correo_electronico=" + correo_electronico
                 + ", telefono=" + telefono + "]";
     }
 

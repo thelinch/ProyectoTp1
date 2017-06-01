@@ -2,7 +2,6 @@ package com.tony.models.Documento;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -24,12 +23,10 @@ import javax.persistence.TemporalType;
 
 import com.tony.models.Tupa;
 import com.tony.models.UsuarioExterrno.UsuarioExterno;
-import javax.persistence.ManyToMany;
 
 @Entity
 @Table(name = "documento")
 public class Documento implements Serializable {
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -50,11 +47,9 @@ public class Documento implements Serializable {
     @Lob()
     @Basic(fetch = FetchType.LAZY)
     private byte[] copia;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_tipoDocumento", nullable = false)
     private Tipo_Documento tipoDocumento;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_tupa")
     private Tupa tupa;
@@ -71,29 +66,27 @@ private List<Usuario_interno> usuarios;*/
     @JoinColumn(name = "id_concluido")
     private Concluido concluido;
 
-    @OneToMany(mappedBy = "documento", cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE, CascadeType.DETACH}, orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "documento", cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE, CascadeType.DETACH}, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Operacion_EstadosDocumentos> operacionEstados = new ArrayList<>();
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST}, fetch = FetchType.LAZY, targetEntity = Tipo_peticion.class)
-    private List<Tipo_peticion> tipo_peticions;
 
     public Documento() {
-        this.tipo_peticions = new ArrayList<>();
 
     }
 
-    public Documento(String codigo, String asunto, Tipo_Documento tipoDocumento, Estado_documentos estado) {
-        this.tipo_peticions = new ArrayList<>();
+    public Documento(String codigo, String asunto, String Contenido_documento, String Observaciones, int numero_folio_presentado, boolean is_disconforme) {
         this.codigo = codigo;
+        this.Observaciones = Observaciones;
+        this.num_foleo = numero_folio_presentado;
+        this.contenido_doc = Contenido_documento;
         this.asunto = asunto;
-        this.tipoDocumento = tipoDocumento;
+        this.Disconforme = is_disconforme;
 
     }
-
-    public void AddTipo_peticions(Tipo_peticion peticion) {
-        if (this.tipo_peticions.isEmpty() || !this.tipo_peticions.contains(peticion)) {
-            this.tipo_peticions.add(peticion);
-        }
-    }
+//    public void AddTipo_peticions(Tipo_peticion peticion) {
+//        if (this.tipo_peticions.isEmpty() || !this.tipo_peticions.contains(peticion)) {
+//            this.tipo_peticions.add(peticion);
+//        }
+//    }
 
     public void AddOperacionDocumentos(OperacionDocumento doc) {
         if (this.operacionesDocumento.isEmpty() || !this.operacionesDocumento.contains(doc)) {
@@ -219,12 +212,6 @@ private List<Usuario_interno> usuarios;*/
         return Disconforme;
     }
 
-    public boolean OperacionDisconforme() {
-        if (this.getTupa() != null) {
-            return (this.num_foleo < this.getTupa().getProceso()) ? false : true;
-        }
-        return this.Disconforme;
-    }
 
     public void setDisconforme(boolean disconforme) {
         Disconforme = disconforme;
@@ -267,9 +254,7 @@ private List<Usuario_interno> usuarios;*/
 
     @Override
     public String toString() {
-        return "Documento{" + "id_documento=" + id_documento + ", codigo=" + codigo + ", fecha=" + fecha + ", asunto=" + asunto + ", contenido_doc=" + contenido_doc + ", Observaciones=" + Observaciones + ", Disconforme=" + Disconforme + ", num_foleo=" + num_foleo ;
+        return "Documento{" + "id_documento=" + id_documento + ", codigo=" + codigo + ", fecha=" + fecha + ", asunto=" + asunto + ", contenido_doc=" + contenido_doc + ", Observaciones=" + Observaciones + ", Disconforme=" + Disconforme + ", num_foleo=" + num_foleo;
     }
-
-    
 
 }
